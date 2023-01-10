@@ -1,0 +1,72 @@
+Creé estas dos porque no sabía que las creaba el proyecyo,sólo había que buscarlo. Los archivos conf.js y spec.js que el proyecto crea
+están en usuarios/vicente/appData/roaming/modules/protector/example
+Debemos situarnos en esa carpeta y lanzar el test.
+No hace falta lanzar el driver aquí. Todo visto en un video en ingles de un indio.
+Para configurar nuestro primer case debemos tocar las configuraciones de :
+    browser,framework... en conf.js
+
+En spec.js configuraremos los test
+
+Lo que he hecho es copiar esos dos en la carpeta e2e,así solo tendre que entrar en esa carpeta y lanzar el test
+Pongo en google demo protractor y me sale la "calculadora"
+Crearemos el test sobre ese ejemplo
+Creo calculadora.js y miro en la web la sintaxis de Jasmine.(describe,it,...)
+Empezamos por la estructura : 
+
+
+        describe('prueba1 test para calculadora de github', function(){
+
+            //aquí creamos los bloques it
+
+            it('addition test', function(){
+
+
+
+            })
+
+            it('subtraction test', function(){
+
+
+                
+            })
+
+
+})
+
+La primera vez solo pondremos la primera parte.
+mirar protactor api en google para ver todas sus características.
+Cogemos el link de la calculadora y lo ponemos.
+Una vez puesto su link, vamos a conf.js y cambiamos el test poniendo calculadora.js
+El test funcionará poniendo protractor conf.js
+Podemos poner browser.sleep(2000) con lo que haremos que el test no sea tan rápido. Puede pasar así o que se lento y debamos acelelarlo
+Para empezar a hacer test de la calculadora, debemos seleccionar la caja de texto primera, para introducir datos en el test.
+Vamos al DOM y la buscamos la caja de texto,en este caso es la input ng-model="first"
+Vamos a la api y ponemos ng-model, nos enseñará como debemos seleccionarlo, copiamos y lo ponemos(en este caso :
+
+element(by.model('person.name'))) (cambiando person.name por first,que es el nombre del input)
+Ahra buscamos en el api sendkeys,lo añadimos. Ponemos .sendKeys(2) con lo que comprobamos que al lanzar nos pondrá un 2
+Ahora debemos poner otro dígito en la otra caja de texto
+También debemos hacer click en el botón,para ello buscaremos la forma de seleccionarlo mediante css,esto también lo vemos en la api
+Lo finalizamos con .click() para hacer click(se hace así,ver en api)
+Ahora buscamos la caja donde aparece el resultado y la seleccionamos
+En este caso hay que ponerlo así: 
+    element(by.cssContainingText('.ng-binding', '5'))
+ya que ng-binding es dinámico, hay que ponerlo asi y luego lo que esperamos.
+Ahora mismo todo funcioona porque no estamos verificando.
+Pasaremos el containing a una variable para que sea mas facil
+Vemos en expectations,en la api y elegimos
+importante esta api de jasmine tambien : https://devhints.io/jasmine
+Aqui estan la verificaciones
+Los principales metodos del elemento son click(), getText() y sendKeys
+Si elegimos con css podemos hacerlo de dos formas : 
+            1) element(by.css('my-css'))
+            2) $('my-css') ---) todo reducido a $
+
+He intentado probar a seleccionar options value y cambiar suma,resta para hacer tests.
+Pero no funciona, y el siguiente paso que da el video, (protractor beginner tutorial 9)
+es ordenar tipo POM , así que crea una carpeta de pages y un archivo homepage.js
+En él (dentro de la funcion homepage)copiamos todos los elementos que hemos seleccionado en calculadora.js
+Solo copiamos el seleccionador guardandolos en variables
+Nos fijamos que queda más ordenado,más limpio y no ponemos números,usamos variables
+Fijarse en lo que cambia, como en el homepage solo ponemos funciones y variables y los datos los damos en calculadora haciendo la llamada
+a los metodos. Es importante el required de calculadora let homepage = require('./../paginas/homepage.js')
