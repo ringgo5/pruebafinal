@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="1" tests="2" time="4.512">
- <testsuite name="prueba1 test para calculadora de github" timestamp="2023-01-11T17:39:21" hostname="localhost" time="4.512" errors="0" tests="2" skipped="0" disabled="0" failures="1">
-  <testcase classname="prueba1 test para calculadora de github" name="addition test" time="4.428" />
+<testsuites disabled="0" errors="0" failures="1" tests="2" time="4.592">
+ <testsuite name="prueba1 test para calculadora de github" timestamp="2023-01-11T18:06:37" hostname="localhost" time="4.592" errors="0" tests="2" skipped="0" disabled="0" failures="1">
+  <testcase classname="prueba1 test para calculadora de github" name="addition test" time="4.51" />
   <testcase classname="prueba1 test para calculadora de github" name="test 2" time="0.081">
    <failure type="exception" message="Failed: homepage.hacerClick2 is not a function"><![CDATA[TypeError: homepage.hacerClick2 is not a function
     at UserContext.<anonymous> (V:\Angular-trabajos\carpeta1\protactor\prbandoProtractor\e2e\calculadora.js:53:14)

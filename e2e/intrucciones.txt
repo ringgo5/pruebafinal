@@ -217,3 +217,12 @@ Creamos un repositorio en github
 
 Comprobamos en opciones, gith path que está ubicado donde pone.
 Comprobamos tambien que git enabled esta como enabled
+Cuando añadamos veremos en oculto una carpeta dentro del proyecto llamada .git
+
+Intentar no enviar todos los archivos a commit, muchos resultados de xml ocupan espacio, es mejor pasarlos a .gitignore,se creará
+    una carpeta como .gitignore
+
+El tio del video, añade estas lineas a gitignore para que nunca las guarde:
+    allure-results/
+    screenshots/
+    target/
