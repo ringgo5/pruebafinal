@@ -70,3 +70,77 @@ Solo copiamos el seleccionador guardandolos en variables
 Nos fijamos que queda más ordenado,más limpio y no ponemos números,usamos variables
 Fijarse en lo que cambia, como en el homepage solo ponemos funciones y variables y los datos los damos en calculadora haciendo la llamada
 a los metodos. Es importante el required de calculadora let homepage = require('./../paginas/homepage.js')
+
+
+-----------hacer screenshoot con porotactor----
+
+Lo instalamos : npm install protractor-jasmine2-screenshot-reporter --save-dev
+Editamos conf.js y añadimos lo que pone : 
+
+    var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+    var reporter = new HtmlScreenshotReporter({
+    dest: 'target/screenshots',
+    filename: 'my-report.html'
+    });
+
+Luego añadimo esto al final del archivo de conf :
+
+// Setup the report before any tests start
+beforeLaunch: function() {
+  return new Promise(function(resolve){
+    reporter.beforeLaunch(resolve);
+  });
+},
+
+// Assign the test reporter to each running instance
+onPrepare: function() {
+  jasmine.getEnv().addReporter(reporter);
+},
+
+// Close the report after all tests finish
+afterLaunch: function(exitCode) {
+  return new Promise(function(resolve){
+    reporter.afterLaunch(resolve.bind(this, exitCode));
+  });
+}
+
+Ahora en cada test, nos hara una imagen y un html. Queda bastante bien, porque queda todo el restulado registrado en una imagen y en un archivohtml
+
+----------Crear allure html reports con protractor--------------------
+
+vamos a google y ponemos jasmine allure report
+
+Instalamos. Al igual que antes tendremos que modificiar el conf.js y añadir un par de lineas despues de instalarlo : 
+npm i jasmine-allure-reporter
+Como vemos que tenemos un on prepare ya de screeshot,copiamos todo menos eso : 
+En realidad no copiar esto, lo copié y no iba, lo dejé sin copiar y funcioan perfectamente
+
+    var AllureReporter = require('jasmine-allure-reporter');
+    jasmine.getEnv().addReporter(new AllureReporter({
+    resultsDir: 'allure-results'
+
+y lo metemos en el on prepare. El on prepare queda asi de momento:
+
+    onPrepare: function () {
+        jasmine.getEnv().addReporter(reporter);
+        var AllureReporter = require('jasmine-allure-reporter');
+        jasmine.getEnv().addReporter(new AllureReporter({
+        resultsDir: 'allure-results'
+        }));
+    },
+
+HAsta aquí obtemeos un archivo XML, queremos HTML : 
+
+    vamos google ybuscamos allure framw
+
+    añadimos allure comandline---) npm i -g allure-commandline
+
+    Ejecutamos allure serve (enlace de la carpeta de allure donde recibimos los reportes)
+
+    allure serve V:\Angular-trabajos\carpeta1\protactor\prbandoProtractor\e2e\allure-results
+
+    Ahora nos abre una web donde podemos ver todos los test y manejarlos
+
+
+---------------AHORA VAMOS A VER COMO GENERAR HTML REPORTS con Screenshot en Protractor-------------------
