@@ -208,3 +208,12 @@ fs.emptyDir('screenshots/', function (err) {
 
     
 -----Aqui acaba html reprots con screenshot
+
+---COMO USAR GIT EN NUESTROS PROYECTOS----
+
+comprobamos que lo tenemos, git --version
+
+Creamos un repositorio en github
+
+Comprobamos en opciones, gith path que está ubicado donde pone.
+Comprobamos tambien que git enabled esta como enabled
