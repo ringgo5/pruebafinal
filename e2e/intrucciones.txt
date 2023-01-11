@@ -144,3 +144,67 @@ HAsta aquí obtemeos un archivo XML, queremos HTML :
 
 
 ---------------AHORA VAMOS A VER COMO GENERAR HTML REPORTS con Screenshot en Protractor-------------------
+
+Vamosa  google y buscamos html protractor reports y lo instalamos:
+    npm i protractor-html-reporter-2
+
+Añadimos lo necesario,elegimos añadirlo desde el archivo conf.js:
+
+
+  onComplete: function() {
+    var browserName, browserVersion;
+    var capsPromise = browser.getCapabilities();
+
+    capsPromise.then(function (caps) {
+      browserName = caps.get('browserName');
+      browserVersion = caps.get('version');
+      platform = caps.get('platform');
+
+      var HTMLReport = require('protractor-html-reporter-2');
+
+      testConfig = {
+          reportTitle: 'Protractor Test Execution Report',
+          outputPath: './',
+          outputFilename: 'ProtractorTestReport',
+          screenshotPath: './screenshots',
+          testBrowser: browserName,
+          browserVersion: browserVersion,
+          modifiedSuiteName: false,
+          screenshotsOnlyOnFailure: true,
+          testPlatform: platform
+      };
+      new HTMLReport().from('xmlresults.xml', testConfig);
+  });
+  } --------) nos fijamos si ya tenemos el on_complete, si lo tenemos solo añadimos lo de dentro,si no, añadimos la funcion entera
+    NO OLVIDAR poner la coma
+
+También tenemos que añadir unas líneas en on_prepare function :
+
+Por último,ejecutar conf.js
+Buscamos el archivo generado y lo abrimos, hay una web parecida a allure
+Como vemos hay una opcion que te deja ver una imagen del erro, para ello copiaremos esto en onPrepare:
+
+var fs = require('fs-extra');
+ 
+fs.emptyDir('screenshots/', function (err) {
+        console.log(err);
+    });
+ 
+    jasmine.getEnv().addReporter({
+        specDone: function(result) {
+            if (result.status == 'failed') {
+                browser.getCapabilities().then(function (caps) {
+                    var browserName = caps.get('browserName');
+ 
+                    browser.takeScreenshot().then(function (png) {
+                        var stream = fs.createWriteStream('screenshots/' + browserName + '-' + result.fullName+ '.png');
+                        stream.write(new Buffer(png, 'base64'));
+                        stream.end();
+                    });
+                });
+            }
+        }
+    });
+
+    
+-----Aqui acaba html reprots con screenshot
