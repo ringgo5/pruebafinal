@@ -226,3 +226,16 @@ El tio del video, añade estas lineas a gitignore para que nunca las guarde:
     allure-results/
     screenshots/
     target/
+
+Para añadir los cambios a mi pagina de git : 
+Buscamos en paleta de comando git add, damos a aceptar, nos pedira el irl del repositorio(el que hemos creado) y luego un nombre
+Enter y listo
+Por último añadimos los cambios a github
+Vamos a comando otra vez y bscamos git push(tambien esta abajo a la izq,forma de nube)
+
+git--)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
+
+
+DEJO PARA MAÑANA ERROR DE Jasmine
+
+Arreglado, volví a poner la conf de conf.js y ya funciona. No olvidar que para ver resultados tenemos que abrir el html generado

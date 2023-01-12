@@ -1,9 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 
-e2e/allure-results/
-e2e/screenshots/
-e2e/target/
+
 
 # Compiled output
 /dist
@@ -49,3 +47,6 @@ e2e/allure-results/7bfc7856-4888-4e83-a7fc-63d6773697bd-testsuite.xml
 e2e/target/screenshots/3e9785c17032736e487ce78ac490b550.png
 e2e/target/screenshots/af910928882f68781560e0a21ffb4989.png
 e2e/xmlresults.xml
+e2e/allure-results/27e5f633-63b2-4ecd-9890-55bf629b598a-testsuite.xml
+e2e/allure-results/27305bb1-3cb0-41c9-8ecf-1858c75e0e4f-testsuite.xml
+e2e/allure-results/e9163885-8ace-4976-a9a0-341abc2dd7a1-testsuite.xml

@@ -50,7 +50,7 @@ describe('prueba1 test para calculadora de github', function () {
     homepage.direccion('http://juliemr.github.io/protractor-demo/')
     homepage.introducirPrimerNumero('3');
     homepage.introducirSegundoNumero('4');
-    homepage.hacerClick2();
+    homepage.hacerClick();
     homepage.verificar('8')
     browser.sleep(2000)
 
