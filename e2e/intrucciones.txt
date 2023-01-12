@@ -239,3 +239,5 @@ git--)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
 DEJO PARA MAÑANA ERROR DE Jasmine
 
 Arreglado, volví a poner la conf de conf.js y ya funciona. No olvidar que para ver resultados tenemos que abrir el html generado
+
+HE conseguido subir una carpeta a github ahora estoy intentado subir otro
