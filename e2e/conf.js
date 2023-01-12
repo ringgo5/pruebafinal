@@ -116,7 +116,7 @@ exports.config = {
     });
   }
 
-  //Aquí acaba la configuración de screeshot.  No olvidar poner lo de arriba
+  //Aquí acaba la configuración de screeshot.  No olvidar poner lo de arriba.
 
 
 };
