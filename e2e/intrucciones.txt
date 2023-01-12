@@ -241,3 +241,5 @@ DEJO PARA MAÑANA ERROR DE Jasmine
 Arreglado, volví a poner la conf de conf.js y ya funciona. No olvidar que para ver resultados tenemos que abrir el html generado
 
 HE conseguido subir una carpeta a github ahora estoy intentado subir otro
+
+He conseguido subirt varias carpetas siempre cambiando la rama a master( simplmenete pongo master arriba cuando me lo pide)
