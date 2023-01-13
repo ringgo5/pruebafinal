@@ -71,6 +71,7 @@ Nos fijamos que queda más ordenado,más limpio y no ponemos números,usamos var
 Fijarse en lo que cambia, como en el homepage solo ponemos funciones y variables y los datos los damos en calculadora haciendo la llamada
 a los metodos. Es importante el required de calculadora let homepage = require('./../paginas/homepage.js')
 
+Está hecho para que lancemos siempre conf.js(cambiamos el spec para usar un test u otro)
 
 -----------hacer screenshoot con porotactor----
 
